@@ -16,12 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.blankj.utilcode.constant.PermissionConstants;
 import com.blankj.utilcode.util.PermissionUtils;
+import com.study.classapp.MyApp;
 import com.study.classapp.base.BaseActivity;
 import com.study.classapp.base.ThemeActivity;
 import com.study.classapp.databinding.ActivityMainBinding;
 import com.study.classapp.databinding.ActivityWelcomeBinding;
 import com.study.classapp.datebase.AppDatabase;
 import com.study.classapp.util.DataCreator;
+import com.study.classapp.util.SharedPreferencesUtils;
 
 import java.lang.ref.WeakReference;
 
@@ -34,10 +36,19 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityWelcomeBinding = ActivityWelcomeBinding.inflate(LayoutInflater.from(this));
         setContentView(activityWelcomeBinding.getRoot());
+        PermissionUtils.permission(PermissionConstants.STORAGE).request();
+        if (SharedPreferencesUtils.getBoolean(MyApp.getMyApplication().getApplicationContext(), "isDataInit", false)) {
+            //如果已经做了初始化，那么直接进入课表页面
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+        //没做过数据初始化的，进行数据初始化并加入数据库
         DataCreator.makeClassData();
         mHandler.sendEmptyMessageDelayed(1, 1000);
 
-        PermissionUtils.permission(PermissionConstants.STORAGE).request();
+
     }
 
 

@@ -1,6 +1,7 @@
 package com.study.classapp.util;
 
 import com.blankj.utilcode.util.TimeUtils;
+import com.study.classapp.MyApp;
 import com.study.classapp.R;
 import com.study.classapp.datebase.AppDatabase;
 import com.study.classapp.model.StudentClass;
@@ -16,6 +17,7 @@ public class DataCreator {
     //生成课程表数据
     public static void makeClassData() {
         try {
+
             AppDatabase.getInstance().studentClassDao().deleteAll();
             String json = FileUtil.getRawFile(R.raw.data);
             JSONObject jsonObject = new JSONObject(json);
@@ -52,6 +54,7 @@ public class DataCreator {
                 studentClass.setClassAddress(classAddress);
                 AppDatabase.getInstance().studentClassDao().insertStudentClass(studentClass);
             }
+            SharedPreferencesUtils.saveBoolean(MyApp.getMyApplication().getApplicationContext(), "isDataInit", true);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -52,5 +52,6 @@
             android:name=".ui.alarm.ClockAlarmActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
         <activity android:name=".ui.AlarmActivity" />
+        <activity android:name=".ui.AddClassActivity" />
     </application>
 </manifest>

@@ -29,12 +29,17 @@ public class MainActivity extends ThemeActivity {
         setContentView(mainBinding.getRoot());
 
         getActionBarLayoutBinding().back.setOnClickListener(view -> this.finish());
+        getActionBarLayoutBinding().setting.setText("添加");
         getActionBarLayoutBinding().setting.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, AlarmActivity.class);
+            Intent intent = new Intent(MainActivity.this, AddClassActivity.class);
             startActivity(intent);
         });
         currentDay = TimeUtils.getChineseWeek(System.currentTimeMillis());
         mainBinding.tabDay.setTabMode(TabLayout.MODE_FIXED);
+        mainBinding.alarm.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AlarmActivity.class);
+            startActivity(intent);
+        });
         ArrayList<StudentClassFragment> fragments = new ArrayList<>();
         int currentIndex = 0;
         for (int i = 0; i < weekDay.length; i++) {

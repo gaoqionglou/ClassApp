@@ -232,22 +232,17 @@ public class AlarmActivity extends ThemeActivity {
 
     }
 
+    //启动定时设置手机静音
     private void startTimeReceiver() {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(AlarmActivity.this, TimeReceiver.class);
-
-
-
         SharedPreferencesUtils.saveString(MyApp.getMyApplication().getApplicationContext(),"startTime", start);
         SharedPreferencesUtils.saveString(MyApp.getMyApplication().getApplicationContext(),"endTime", end);
         SharedPreferencesUtils.saveString(MyApp.getMyApplication().getApplicationContext(),"className", className);
-
-
         PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmActivity.this, 0,
                 intent, 0);
         assert alarmManager != null;
         alarmManager.setInexactRepeating(AlarmManager.RTC, 0, 1 * 1000, pendingIntent);
-
     }
 
     public String getTime(Date date) {

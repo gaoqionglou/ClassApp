@@ -23,13 +23,6 @@ public class DataCreator {
             JSONObject jsonObject = new JSONObject(json);
             JSONArray array = jsonObject.getJSONArray("data");
             for (int i = 0; i < array.length(); i++) {
-//                "className": "C++",
-//                        "classDate": "2020-06-13",
-//                        "classStartTime": "8:30",
-//                        "classEndTime": "10:30",
-//                        "classWeeks": "1-20weeks",
-//                        "classNum": "3",
-//                        "classTeacher": "Mr.A"
                 JSONObject obj = array.getJSONObject(i);
                 String className = obj.getString("className");
                 String classDate = obj.getString("classDate");

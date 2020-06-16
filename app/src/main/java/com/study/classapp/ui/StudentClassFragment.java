@@ -28,13 +28,10 @@ public class StudentClassFragment extends Fragment {
     private FragmentStudentClassBinding studentClassBinding;
     private MainViewModel viewModel;
     private String day;
-
     private ClassListAdapter mAdapter;
-
     public StudentClassFragment() {
         // Required empty public constructor
     }
-
     public static StudentClassFragment newInstance(String day) {
         StudentClassFragment fragment = new StudentClassFragment();
         Bundle args = new Bundle();
@@ -42,7 +39,6 @@ public class StudentClassFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -65,7 +61,6 @@ public class StudentClassFragment extends Fragment {
         });
         return studentClassBinding.getRoot();
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

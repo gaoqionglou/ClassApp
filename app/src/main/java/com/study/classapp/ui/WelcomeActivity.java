@@ -47,6 +47,8 @@ public class WelcomeActivity extends AppCompatActivity {
         //没做过数据初始化的，进行数据初始化并加入数据库
         DataCreator.makeClassData();
         mHandler.sendEmptyMessageDelayed(1, 1000);
+        //动态权限申请
+        PermissionUtils.permission(PermissionConstants.STORAGE).request();
 
 
     }

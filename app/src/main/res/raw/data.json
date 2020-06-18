@@ -74,8 +74,8 @@
       "className": "JAva",
       "classDate": "2020-06-18",
       "classAddress": "A380",
-      "classStartTime": "10:40",
-      "classEndTime": "11:40",
+      "classStartTime": "20:40",
+      "classEndTime": "21:40",
       "classWeeks": "1-20weeks",
       "classNum": "3",
       "classTeacher": "Mr.A"
@@ -84,8 +84,8 @@
       "className": "数据库",
       "classDate": "2020-06-18",
       "classAddress": "A380",
-      "classStartTime": "14:30",
-      "classEndTime": "15:30",
+      "classStartTime": "20:30",
+      "classEndTime": "21:30",
       "classWeeks": "1-20weeks",
       "classNum": "3",
       "classTeacher": "Mr.A"
